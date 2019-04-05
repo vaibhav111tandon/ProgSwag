@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar color="success" *ngIf="loadedSwag.difficulty === 'easy'">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/swags"></ion-back-button>
+      </ion-buttons>
+    <ion-title>{{ loadedSwag.name }}</ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar color="warning" *ngIf="loadedSwag.difficulty === 'medium'">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/swags"></ion-back-button>
+      </ion-buttons>
+    <ion-title>{{ loadedSwag.name }}</ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar color="danger" *ngIf="loadedSwag.difficulty === 'hard'">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/swags"></ion-back-button>
+      </ion-buttons>
+    <ion-title>{{ loadedSwag.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-img [src]="loadedSwag.image"></ion-img>
+        <ion-card color="medium">
+          <ion-card-content color="dark">
+            <h2><b>Description</b></h2>
+          </ion-card-content>
+        </ion-card>
+        <ion-card>
+          <ion-card-content color="dark">
+            {{ loadedSwag.description }}
+          </ion-card-content>
+        </ion-card>
+        
+          <ion-card color="medium">
+            <ion-card-content color="dark">
+              <h2><b>Reference</b></h2>
+            </ion-card-content>
+          </ion-card>
+        <ion-card>
+          <ion-card-content color="dark">
+            <a color="primary" [href]="loadedSwag.reference">{{ loadedSwag.reference }}</a>
+          </ion-card-content>
+        </ion-card>
+        <ion-card color="medium">
+          <ion-card-content color="dark">
+              <h2><b>Tags</b></h2>
+          </ion-card-content>
+        </ion-card>
+        <ion-card>
+          <p *ngFor="let tags of loadedSwag.tags">
+            <ion-chip outline color="primary">
+              <ion-label>{{tags}}</ion-label>
+            </ion-chip>
+          </p>  
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

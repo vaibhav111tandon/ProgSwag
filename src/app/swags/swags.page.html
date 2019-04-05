@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>ProgSwags</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-item *ngFor="let swag of swags"  [routerLink]="['/swags',swag.id]">
+            
+              <ion-thumbnail slot="start">
+                <ion-img [src]="swag.image"></ion-img>
+              </ion-thumbnail>
+              
+              <ion-text color="dark" padding>
+                <h2>{{ swag.name }}</h2>
+              </ion-text>
+
+              <ion-chip outline color="success" slot="end" *ngIf="swag.difficulty==='easy'">
+                  <ion-label>{{swag.difficulty}}</ion-label>
+              </ion-chip>
+
+
+              <ion-chip outline color="warning" slot="end" *ngIf="swag.difficulty==='medium'">
+                  <ion-label>{{swag.difficulty}}</ion-label>
+              </ion-chip>
+
+              
+              <ion-chip outline color="danger" slot="end" *ngIf="swag.difficulty==='hard'">
+                  <ion-label>{{swag.difficulty}}</ion-label>
+              </ion-chip>
+
+              
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
